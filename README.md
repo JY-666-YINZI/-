@@ -2,6 +2,12 @@
 [![Exploit](https://img.shields.io/badge/Stage-Exploit-red.svg)]()
 [![Language](https://img.shields.io/badge/Language-Python%203-blue.svg)]()
 [![Target](https://img.shields.io/badge/Vuln-SQL%20Injection-orange.svg)]()
+<p align="left">
+  <img src="https://img.shields.io/badge/Stage-Exploit-red.svg" alt="Stage">
+  <img src="https://img.shields.io/badge/Language-Python%203-blue.svg" alt="Language">
+  <img src="https://img.shields.io/badge/Vuln-SQL%20Injection-orange.svg" alt="Vuln">
+  <img src="https://img.shields.io/badge/Platform-Cross--Platform-lightgrey.svg" alt="Platform">
+</p>
 
 渗透项目 / 渗透工具 / 脚本文件
 

